@@ -11,7 +11,7 @@ def loadCSV (filePath, datatype = np.int) :
 
 data = loadCSV('../train.csv')
 test = loadCSV('../test.csv')
-reg = 1.0
+reg = 3.0
 hiddenLayerSize = 50
 Nfeval = 1
 
