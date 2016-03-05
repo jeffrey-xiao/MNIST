@@ -23,7 +23,7 @@ testSize = 28000
 
 reg = 5.0
 
-maxIterations = 10
+maxIterations = 200
 iteration = 1
 
 def sigmoid (x) :
