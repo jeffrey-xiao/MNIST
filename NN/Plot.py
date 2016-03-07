@@ -1,12 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import csv
+import pandas as pd
 
-def loadCSV (filePath, datatype = np.int, skip = 1) :
-    with open(filePath,'r') as dest_file:
-        data_iter = csv.reader(dest_file, delimiter=",", quotechar='"')
-        data = [line for line in data_iter][skip:]
-    return np.asarray(data, dtype=datatype)
+def loadCSV (filePath, skip=1) :
+    return np.asarray(pd.read_csv(filePath, skiprows=skip, header=None))
 
 def sigmoid (x) :
     return 1.0 / (1 + np.exp(-x))
@@ -32,7 +29,7 @@ def predict (x, data, m, featureSize, hiddenSize, outputSize) :
     return np.argmax(outputLayer, 1)
 
 data = loadCSV('../test.csv')
-theta = loadCSV('../theta.csv', np.float, 0)
+theta = loadCSV('../theta.csv', 0)
 
 
 m = np.size(data, 0);
